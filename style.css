@@ -1,0 +1,2430 @@
+/* ========================================
+   الألوان والمظهر
+======================================== */
+
+:root {
+    color-scheme: dark;
+
+    --bg: #071b2b;
+    --surface: #0b2132;
+    --surface2: #102a3c;
+    --text: #f2f5f7;
+    --muted: #b0beca;
+    --line: rgba(255, 255, 255, 0.12);
+    --accent: #a0dfdb;
+    --gold: #dfbd83;
+    --header: rgba(7, 27, 43, 0.96);
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+
+    --hero-image: url("assets/hero-stairs.webp");
+    --hero-fade: rgba(7, 27, 43, 0);
+}
+
+html[data-theme="light"] {
+    color-scheme: light;
+
+    --bg: #f7f9f8;
+    --surface: #ffffff;
+    --surface2: #eaf0ef;
+    --text: #173247;
+    --muted: #536776;
+    --line: rgba(23, 50, 71, 0.16);
+    --accent: #226e70;
+    --gold: #926727;
+    --header: rgba(247, 249, 248, 0.96);
+    --shadow: 0 12px 40px rgba(23, 50, 71, 0.08);
+
+    --hero-image: url("assets/hero-stairs-light.webp");
+    --hero-fade: rgba(247, 249, 248, 0);
+}
+
+/* ========================================
+   الإعدادات العامة
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.95;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-top: 0;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    line-height: 1.55;
+}
+
+h2 {
+    margin-bottom: 16px;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700;
+}
+
+h3 {
+    margin-bottom: 12px;
+}
+
+p {
+    margin: 0 0 18px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button,
+a,
+summary {
+    touch-action: manipulation;
+}
+
+button,
+a,
+input,
+summary {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+svg {
+    display: block;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 5px;
+}
+
+::selection {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+main {
+    max-width: 1600px;
+    margin-inline: auto;
+}
+
+main > section {
+    margin-inline: 5%;
+    padding-block: 80px;
+    border-bottom: 1px solid var(--line);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.eyebrow {
+    margin-bottom: 12px;
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.text-link {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.skip {
+    position: fixed;
+    top: -100px;
+    right: 20px;
+    z-index: 100;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.skip:focus {
+    top: 12px;
+}
+
+/* ========================================
+   شريط التنقل
+======================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 4%;
+    border-bottom: 1px solid var(--line);
+    background: var(--header);
+    backdrop-filter: blur(18px);
+}
+
+header .identity {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-inline-end: auto;
+    padding: 0;
+    border: 0;
+}
+
+.university-logo {
+    display: block;
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    filter: brightness(0) invert(1);
+}
+
+html[data-theme="light"] .university-logo {
+    filter: none;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    position: relative;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--accent);
+}
+
+nav a.active::after {
+    position: absolute;
+    right: 0;
+    bottom: -17px;
+    left: 0;
+    height: 2px;
+    background: var(--gold);
+    content: "";
+}
+
+#menu {
+    display: none;
+    flex-shrink: 0;
+    padding: 4px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 22px;
+}
+
+/* زر المظهر */
+
+#theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: 8px;
+    min-width: 88px;
+    padding: 7px 16px;
+    border: 1px solid var(--gold);
+    border-radius: 24px;
+    background: linear-gradient(
+        135deg,
+        rgba(223, 189, 131, 0.16),
+        var(--surface)
+    );
+    color: var(--gold);
+    box-shadow:
+        inset 0 0 0 1px rgba(223, 189, 131, 0.08),
+        0 3px 16px rgba(223, 189, 131, 0.12);
+    transition: box-shadow 0.25s, transform 0.25s;
+}
+
+#theme span {
+    font-size: 21px;
+}
+
+#theme small {
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#theme:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 22px rgba(223, 189, 131, 0.25);
+}
+
+/* ========================================
+   الشعارات الرسمية
+======================================== */
+
+main > .official-identities {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: stretch;
+    gap: 24px;
+    padding-block: 28px;
+}
+
+.official-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+}
+
+.official-logo img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.official-logo-forum img {
+    max-width: 560px;
+}
+
+.official-logo-academic img {
+    max-width: 330px;
+}
+
+.theme-logo-light {
+    display: none;
+}
+
+html[data-theme="light"] .theme-logo-dark {
+    display: none;
+}
+
+html[data-theme="light"] .theme-logo-light {
+    display: block;
+}
+
+/* ========================================
+   الواجهة الرئيسية
+======================================== */
+
+main > .hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 590px;
+    margin: 0;
+    padding: 65px 6% 60px;
+    overflow: hidden;
+    background-image:
+        linear-gradient(
+            270deg,
+            var(--bg) 0%,
+            var(--bg) 20%,
+            var(--hero-fade) 66%
+        ),
+        var(--hero-image);
+    background-repeat: no-repeat;
+    background-position: center, left center;
+    background-size: cover, 72% auto;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+    width: 55%;
+}
+
+.edition {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding: 7px 18px;
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    margin: 0 0 20px;
+    font-size: clamp(42px, 4.5vw, 70px);
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.hero em {
+    color: var(--accent);
+    font-style: normal;
+}
+
+.hero-title {
+    margin-bottom: 18px;
+    font-size: clamp(17px, 1.7vw, 25px);
+}
+
+.event-date {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.event-date > span:first-child {
+    color: var(--gold);
+    font-size: 28px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.button,
+.outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px 23px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.outline {
+    border-color: var(--muted);
+    background: transparent;
+    color: var(--text);
+}
+
+.button:hover,
+.outline:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.button span,
+.outline span {
+    font-size: 22px;
+}
+
+.hero-caption {
+    position: absolute;
+    bottom: 35px;
+    left: 6%;
+    display: grid;
+    gap: 12px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.hero-caption span {
+    width: 45px;
+    height: 1px;
+    background: var(--gold);
+}
+
+/* ========================================
+   الإحصاءات
+======================================== */
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 34px 5%;
+    border-block: 1px solid var(--line);
+    background: linear-gradient(
+        110deg,
+        var(--surface),
+        var(--bg)
+    );
+}
+
+.metrics > div {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    column-gap: 16px;
+    padding-inline: 20px;
+    border-inline-end: 1px solid var(--line);
+    text-align: center;
+}
+
+.metrics > div:last-child {
+    border: 0;
+}
+
+.metric-icon {
+    grid-row: span 2;
+    align-self: center;
+    color: var(--gold);
+}
+
+.metric-icon svg {
+    width: 36px;
+    height: 36px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.metrics b {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.25;
+}
+
+.metrics strong {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.metrics small {
+    grid-column: span 2;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ========================================
+   المسارات
+======================================== */
+
+.center-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.center-heading p {
+    color: var(--muted);
+}
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.journey-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 185px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.journey-art {
+    align-self: stretch;
+    flex: 0 0 29%;
+    min-width: 65px;
+    background-image: var(--hero-image);
+    background-repeat: no-repeat;
+    background-size: auto 220%;
+}
+
+.art-one {
+    background-position: 15% 65%;
+}
+
+.art-two {
+    background-position: 48% 45%;
+}
+
+.art-three {
+    background-image: url("assets/computer-track.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.journey-card > div:nth-child(2) {
+    position: relative;
+    z-index: 1;
+    padding-block: 22px;
+    padding-inline-end: 12px;
+}
+
+.number {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 27px;
+    line-height: 1.2;
+}
+
+.journey-card h3 {
+    margin-bottom: 7px;
+    font-size: 21px;
+}
+
+.journey-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.round-arrow {
+    position: absolute;
+    bottom: 13px;
+    left: 13px;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--accent);
+    font-size: 16px;
+}
+
+.exhibition-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 24px;
+    padding: 23px 28px;
+    border: 1px solid var(--line);
+    border-inline-start: 3px solid var(--gold);
+    border-radius: 12px;
+    background: var(--surface);
+    transition: border-color 0.2s;
+}
+
+.exhibition-link:hover {
+    border-color: var(--gold);
+}
+
+.exhibition-link strong,
+.exhibition-link small {
+    display: block;
+}
+
+.exhibition-link strong {
+    font-size: 19px;
+}
+
+.exhibition-link small {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.exhibition-link > span:last-child {
+    color: var(--accent);
+    font-size: 14px;
+}
+
+/* ========================================
+   نبذة الملتقى
+======================================== */
+
+main > .about {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    align-items: center;
+    gap: 45px;
+    margin-block: 35px;
+    padding: 40px;
+    border: 1px solid var(--line);
+    border-inline-start: 4px solid var(--gold);
+    border-radius: 18px;
+    background: var(--surface);
+}
+
+.about h2 {
+    margin-bottom: 0;
+    font-size: clamp(27px, 3vw, 38px);
+}
+
+.about p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 2.2;
+}
+
+.about .official-brand {
+    display: none;
+}
+
+/* ========================================
+   البرنامج الزمني
+======================================== */
+
+.section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.section-head h2 {
+    margin-bottom: 0;
+}
+
+.section-head > span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.day-tabs {
+    display: flex;
+    gap: 10px;
+    padding: 5px 3px 14px;
+    overflow-x: auto;
+}
+
+.day-tabs button {
+    flex: 1;
+    min-width: 130px;
+    padding: 15px 18px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.day-tabs button b {
+    font-size: 16px;
+}
+
+.day-tabs button[aria-selected="true"] {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.agenda {
+    margin-top: 12px;
+    padding: 30px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+}
+
+.agenda h3 {
+    font-size: 25px;
+}
+
+.agenda-row {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    align-items: start;
+    gap: 24px;
+    padding-block: 16px;
+    border-bottom: 1px solid var(--line);
+}
+
+.agenda-row:last-of-type {
+    border-bottom: 0;
+}
+
+.agenda-row time {
+    direction: ltr;
+    color: var(--gold);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    text-align: right;
+}
+
+.agenda .button {
+    margin-top: 22px;
+}
+
+/* ========================================
+   البحث والورش
+======================================== */
+
+.workshop-tools {
+    margin: 25px 0 10px;
+}
+
+.workshop-tools label {
+    display: block;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.workshop-tools input {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px 17px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+.workshop-tools input::placeholder {
+    color: var(--muted);
+    opacity: 0.85;
+}
+
+#workshop-results {
+    min-height: 26px;
+    margin-block: 12px 24px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.track {
+    padding-block: 30px;
+    scroll-margin-top: 110px;
+}
+
+.track + .track {
+    border-top: 1px solid var(--line);
+}
+
+.track-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.track-head h3 {
+    margin: 7px 0 0;
+    color: var(--text);
+    font-size: 29px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card {
+    min-width: 0;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+}
+
+.card > h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+/* صور المتحدثين */
+
+.person {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 23px;
+}
+
+.person > div {
+    min-width: 0;
+}
+
+.person .speaker-portrait {
+    display: block;
+    flex: 0 0 96px;
+    width: 96px;
+    height: 112px;
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface2);
+    object-fit: contain;
+    object-position: center;
+}
+
+.person .speaker-portrait.is-placeholder {
+    padding: 0;
+}
+
+.person h4 {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.person small {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.slot {
+    display: inline-block;
+    margin-bottom: 13px;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--gold);
+    font-size: 12px;
+}
+
+details {
+    border-top: 1px solid var(--line);
+}
+
+summary {
+    position: relative;
+    padding: 13px 0;
+    color: var(--accent);
+    font-size: 13px;
+    cursor: pointer;
+}
+
+details[open] > summary {
+    color: var(--gold);
+}
+
+details p {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+}
+
+.registration {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 22px;
+}
+
+.qr {
+    width: 90px;
+    height: 90px;
+    padding: 5px;
+    border-radius: 8px;
+    background: #ffffff;
+    object-fit: contain;
+}
+
+.registration p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* ========================================
+   الجلسة الحوارية
+======================================== */
+
+main > .panel-section {
+    margin-top: 40px;
+    padding: 45px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(160, 223, 219, 0.07),
+            transparent 55%
+        ),
+        var(--surface2);
+}
+
+.panel-section > h2 {
+    font-size: clamp(28px, 3.2vw, 44px);
+}
+
+.panel-section > p {
+    max-width: 900px;
+    color: var(--muted);
+}
+
+.panel-section .grid {
+    margin-block: 28px;
+}
+
+.axes {
+    margin-bottom: 22px;
+}
+
+.axes summary {
+    font-size: 15px;
+}
+
+.axes ul {
+    margin-top: 0;
+    padding-inline-start: 24px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.axes li {
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   معرض التدريب
+======================================== */
+
+.location {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 22px;
+    padding: 20px 24px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--surface2);
+}
+
+.location b {
+    color: var(--accent);
+}
+
+.location span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+#partners > p {
+    color: var(--muted);
+}
+
+.org-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.org {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.org:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+}
+
+.org img {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 18px;
+    padding: 12px;
+    border-radius: 8px;
+    background: #ffffff;
+    object-fit: contain;
+}
+
+.org h3 {
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.org details p {
+    font-size: 12px;
+}
+
+/* ========================================
+   بطاقات الإعلانات
+======================================== */
+
+.downloads {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.downloads > div {
+    width: 100%;
+    margin-inline-end: auto;
+}
+
+.downloads h2 {
+    margin-bottom: 0;
+}
+
+.downloads .outline {
+    flex: 1 1 240px;
+    min-height: 100px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-inline-start: 3px solid var(--gold);
+    border-radius: 14px;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(223, 189, 131, 0.12),
+            transparent 70%
+        ),
+        var(--surface);
+    color: var(--text);
+    font-size: 17px;
+}
+
+.downloads .outline:hover {
+    border-color: var(--gold);
+}
+
+/* ========================================
+   نافذة الإعلانات
+======================================== */
+
+.announcement-dialog {
+    width: min(1000px, 94vw);
+    max-height: 92dvh;
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--gold);
+    border-radius: 18px;
+    background: var(--bg);
+    color: var(--text);
+    box-shadow: 0 25px 90px rgba(0, 0, 0, 0.45);
+}
+
+.announcement-dialog::backdrop {
+    background: rgba(2, 10, 18, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.announcement-dialog[open] {
+    animation: announcement-enter 0.25s ease-out;
+}
+
+.announcement-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.announcement-title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.announcement-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.announcement-controls button,
+.announcement-controls a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface2);
+    color: var(--text);
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.announcement-controls button:hover,
+.announcement-controls a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.announcement-controls button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.announcement-stage {
+    direction: ltr;
+    height: 65dvh;
+    padding: 18px;
+    overflow: auto;
+    background: var(--bg);
+}
+
+.announcement-image {
+    display: block;
+    width: auto;
+    max-width: none;
+    height: auto;
+    margin-inline: auto;
+    border-radius: 6px;
+    object-fit: contain;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.announcement-status {
+    margin: 0;
+    padding: 10px 18px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+@keyframes announcement-enter {
+    from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ========================================
+   التواصل
+======================================== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+}
+
+.contact-card > span:nth-child(2) {
+    min-width: 0;
+}
+
+.contact-card strong {
+    display: block;
+    font-size: 15px;
+}
+
+.contact-email {
+    display: block;
+    width: fit-content;
+    margin-top: 8px;
+    color: var(--accent);
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.contact-symbol {
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.contact-arrow {
+    margin-inline-start: auto;
+    color: var(--gold);
+}
+
+/* ========================================
+   التذييل والعودة للأعلى
+======================================== */
+
+.back-top {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 25;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--surface2);
+    color: var(--accent);
+    box-shadow: var(--shadow);
+}
+
+footer {
+    padding: 40px 5%;
+    text-align: center;
+}
+
+footer b {
+    font-size: 15px;
+}
+
+footer p {
+    margin: 10px 0 4px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ========================================
+   الشاشات المتوسطة
+======================================== */
+
+@media (max-width: 1100px) {
+    header {
+        gap: 16px;
+    }
+
+    .university-logo {
+        width: 220px;
+    }
+
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .journey-card h3 {
+        font-size: 18px;
+    }
+
+    .journey-card p {
+        font-size: 11px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .person {
+        gap: 12px;
+    }
+
+    .person .speaker-portrait {
+        flex-basis: 84px;
+        width: 84px;
+        height: 100px;
+    }
+}
+
+/* ========================================
+   الأجهزة اللوحية
+======================================== */
+
+@media (max-width: 900px) {
+    html {
+        scroll-padding-top: 95px;
+    }
+
+    header {
+        gap: 14px;
+        padding: 15px 4%;
+    }
+
+    #menu {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 5%;
+        border-bottom: 1px solid var(--line);
+        background: var(--bg);
+        box-shadow: var(--shadow);
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    nav a {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    nav a.active::after {
+        display: none;
+    }
+
+    nav a.active {
+        border-radius: 7px;
+        background: var(--surface2);
+    }
+
+    main > .hero {
+        min-height: 530px;
+        background-size: cover, 90% auto;
+    }
+
+    .hero-copy {
+        width: 65%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero-title {
+        font-size: 19px;
+    }
+
+    .metrics > div {
+        padding-inline: 12px;
+    }
+
+    .metrics small {
+        font-size: 10px;
+    }
+
+    .journey-grid {
+        gap: 12px;
+    }
+
+    .journey-card {
+        gap: 10px;
+        min-height: 170px;
+    }
+
+    .journey-art {
+        flex-basis: 24%;
+        min-width: 45px;
+    }
+
+    .journey-card h3 {
+        font-size: 16px;
+    }
+
+    .journey-card p {
+        font-size: 10px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 26px;
+    }
+
+    .person .speaker-portrait {
+        flex-basis: 96px;
+        width: 96px;
+        height: 112px;
+    }
+
+    .org-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    main > .official-identities {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding-block: 22px;
+    }
+
+    .official-logo {
+        padding: 22px;
+    }
+
+    .official-logo-forum img {
+        height: 110px;
+    }
+
+    .official-logo-academic img {
+        height: 145px;
+    }
+
+    main > .about {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 25px;
+    }
+
+    .about p {
+        font-size: 14px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .contact-card {
+        padding: 22px;
+    }
+}
+
+/* ========================================
+   الجوال
+======================================== */
+
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 85px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        gap: 9px;
+    }
+
+    header .identity {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .university-logo {
+        width: 210px;
+    }
+
+    #menu {
+        padding: 3px 9px;
+        font-size: 20px;
+    }
+
+    #theme {
+        gap: 5px;
+    }
+
+    #theme span {
+        font-size: 18px;
+    }
+
+    #theme small {
+        font-size: 10px;
+    }
+
+    main > section {
+        padding-block: 48px;
+    }
+
+    main > .hero {
+        display: block;
+        min-height: 740px;
+        padding: 40px 6% 340px;
+        background-image:
+            linear-gradient(
+                180deg,
+                var(--bg) 0%,
+                var(--bg) 43%,
+                var(--hero-fade) 74%
+            ),
+            var(--hero-image);
+        background-position: center, center bottom;
+        background-size: cover, 115% auto;
+    }
+
+    .hero-copy {
+        width: 100%;
+        text-align: center;
+    }
+
+    .edition {
+        gap: 8px;
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-title {
+        font-size: 17px;
+    }
+
+    .event-date {
+        justify-content: center;
+        font-size: 16px;
+    }
+
+    .actions {
+        justify-content: center;
+        gap: 12px;
+        margin-top: 22px;
+    }
+
+    .button,
+    .outline {
+        gap: 14px;
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    .hero-caption {
+        bottom: 20px;
+        font-size: 10px;
+    }
+
+    .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 28px;
+        padding: 28px 5%;
+    }
+
+    .metrics > div:nth-child(2) {
+        border: 0;
+    }
+
+    .metrics b {
+        font-size: 31px;
+    }
+
+    .metrics strong {
+        font-size: 14px;
+    }
+
+    .metric-icon svg {
+        width: 31px;
+        height: 31px;
+    }
+
+    .center-heading p {
+        font-size: 12px;
+    }
+
+    .journey-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .journey-card {
+        gap: 23px;
+        min-height: 135px;
+    }
+
+    .journey-art {
+        flex-basis: 28%;
+    }
+
+    .journey-card h3 {
+        font-size: 21px;
+    }
+
+    .journey-card p {
+        font-size: 12px;
+    }
+
+    .round-arrow {
+        bottom: 18px;
+        left: 18px;
+    }
+
+    .exhibition-link {
+        flex-direction: column;
+        align-items: start;
+        gap: 12px;
+        padding: 20px;
+    }
+
+    .exhibition-link > span:last-child {
+        font-size: 12px;
+    }
+
+    .section-head {
+        flex-wrap: wrap;
+        align-items: start;
+        gap: 12px;
+    }
+
+    .section-head > span {
+        font-size: 12px;
+    }
+
+    .day-tabs button {
+        min-width: 115px;
+        padding: 12px;
+        font-size: 12px;
+    }
+
+    .day-tabs button b {
+        font-size: 14px;
+    }
+
+    .agenda {
+        padding: 20px;
+    }
+
+    .agenda h3 {
+        font-size: 21px;
+    }
+
+    .agenda-row {
+        grid-template-columns: 105px 1fr;
+        gap: 12px;
+        font-size: 12px;
+    }
+
+    .agenda-row time {
+        font-size: 11px;
+    }
+
+    .track {
+        padding-block: 24px;
+    }
+
+    .track-head {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .track-head h3 {
+        font-size: 25px;
+    }
+
+    .track-head .eyebrow {
+        font-size: 11px;
+    }
+
+    .card {
+        padding: 22px;
+    }
+
+    .card > h3 {
+        font-size: 21px;
+    }
+
+    .person .speaker-portrait {
+        flex-basis: 84px;
+        width: 84px;
+        height: 100px;
+    }
+
+    .person h4 {
+        font-size: 15px;
+    }
+
+    main > .panel-section {
+        margin-top: 25px;
+        padding: 25px;
+    }
+
+    .panel-section > h2 {
+        font-size: 27px;
+    }
+
+    .panel-section > p,
+    .axes ul {
+        font-size: 13px;
+    }
+
+    .location {
+        flex-direction: column;
+        align-items: start;
+        gap: 6px;
+        padding: 18px;
+    }
+
+    .location span {
+        font-size: 12px;
+    }
+
+    .org-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .org {
+        padding: 14px;
+    }
+
+    .org img {
+        height: 75px;
+        padding: 8px;
+    }
+
+    .org h3,
+    .org summary {
+        font-size: 12px;
+    }
+
+    .downloads {
+        gap: 14px;
+    }
+
+    .downloads .outline {
+        min-height: 85px;
+        font-size: 15px;
+    }
+
+    .announcement-toolbar {
+        padding: 12px;
+    }
+
+    .announcement-title {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .announcement-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .announcement-stage {
+        height: 58dvh;
+        padding: 12px;
+    }
+
+    .contact-card strong {
+        font-size: 14px;
+    }
+
+    .contact-email {
+        font-size: 13px;
+    }
+
+    .back-top {
+        bottom: 15px;
+        left: 15px;
+        width: 35px;
+        height: 35px;
+    }
+
+    footer b {
+        font-size: 13px;
+    }
+
+    footer p {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .edition {
+        font-size: 9px;
+    }
+
+    .actions {
+        gap: 9px;
+    }
+
+    .button,
+    .outline {
+        padding-inline: 12px;
+        font-size: 11px;
+    }
+}
+
+/* ========================================
+   تقليل الحركة حسب إعداد الجهاز
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .journey-card:hover,
+    .org:hover,
+    .button:hover,
+    .outline:hover,
+    .contact-card:hover,
+    #theme:hover {
+        transform: none;
+    }
+}
+/* ========================================
+   المحاضرون — دوائر بإطار مزدوج
+   ======================================== */
+
+.person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.person .speaker-portrait {
+    display: block;
+    flex: none;
+
+    width: 148px;
+    height: 148px;
+    box-sizing: border-box;
+
+    padding: 10px;
+    margin: 0;
+
+    object-fit: contain;
+    object-position: center;
+
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    outline: 1px solid var(--accent);
+    outline-offset: 5px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(160, 223, 219, 0.09),
+            transparent 75%
+        ),
+        var(--surface);
+
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 250ms ease,
+        box-shadow 250ms ease;
+}
+
+.person .speaker-portrait.is-placeholder {
+    padding: 10px;
+}
+
+.person > div {
+    width: 100%;
+    min-width: 0;
+}
+
+.person h4 {
+    margin: 0 0 6px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.person small {
+    display: block;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.card:hover .speaker-portrait {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.12),
+        0 0 18px rgba(160, 223, 219, 0.08);
+}
+
+/* ========================================
+   الجهات المشاركة — دوائر ومدارات
+   ======================================== */
+
+#organizations.org-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 40px 28px;
+    padding-block: 24px;
+}
+
+#organizations .org {
+    position: relative;
+    isolation: isolate;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: 0;
+    height: auto;
+
+    padding: 18px 12px;
+    overflow: visible;
+
+    text-align: center;
+
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    transition: none;
+}
+
+/* المدار الخارجي المفتوح */
+
+#organizations .org::before {
+    content: "";
+
+    position: absolute;
+    top: 10px;
+    left: 50%;
+
+    width: 166px;
+    height: 166px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--gold);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-radius: 50%;
+
+    transform: translateX(-50%) rotate(-25deg);
+
+    pointer-events: none;
+
+    transition: transform 350ms ease;
+}
+
+/* نقطة ذهبية على المدار */
+
+#organizations .org::after {
+    content: "";
+
+    position: absolute;
+    top: 19px;
+    left: calc(50% + 39px);
+
+    width: 6px;
+    height: 6px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: var(--gold);
+    box-shadow: 0 0 8px rgba(223, 189, 131, 0.35);
+
+    pointer-events: none;
+}
+
+/* الشعار داخل الدائرة */
+
+#organizations .org > img {
+    display: block;
+    flex: none;
+
+    width: 150px;
+    max-width: none;
+    height: 150px;
+
+    box-sizing: border-box;
+
+    margin: 0 0 24px;
+    padding: 24px;
+
+    object-fit: contain;
+    object-position: center;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            rgba(160, 223, 219, 0.12),
+            transparent 65%
+        ),
+        var(--surface);
+
+    filter: none;
+
+    box-shadow:
+        inset 0 1px 10px rgba(255, 255, 255, 0.04),
+        0 8px 24px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 250ms ease,
+        border-color 250ms ease;
+}
+
+#organizations .org > h3 {
+    width: 100%;
+    margin: 0;
+
+    color: var(--text);
+
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.9;
+
+    overflow-wrap: anywhere;
+}
+
+/* نبذة الجهة */
+
+#organizations .org > details {
+    width: 100%;
+    margin-top: 14px;
+    padding-top: 10px;
+
+    text-align: start;
+
+    border-top: 1px solid var(--line);
+}
+
+#organizations .org > details > summary {
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+#organizations .org > details > p {
+    margin: 10px 0 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* التفاعل */
+
+#organizations .org:hover,
+#organizations .org:focus-within {
+    transform: none;
+    background: transparent;
+    box-shadow: none;
+}
+
+#organizations .org:hover > img,
+#organizations .org:focus-within > img {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+#organizations .org:hover::before,
+#organizations .org:focus-within::before {
+    transform: translateX(-50%) rotate(15deg);
+}
+
+/* الثيم الفاتح */
+
+[data-theme="light"] .person .speaker-portrait {
+    background: var(--surface);
+    box-shadow: 0 8px 22px rgba(23, 50, 71, 0.07);
+}
+
+[data-theme="light"] #organizations .org > img {
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            rgba(34, 110, 112, 0.07),
+            transparent 65%
+        ),
+        var(--surface);
+
+    box-shadow: 0 8px 24px rgba(23, 50, 71, 0.07);
+}
+
+/* الشاشات الصغيرة */
+
+@media (max-width: 1100px) {
+    #organizations.org-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px 20px;
+    }
+}
+
+@media (max-width: 700px) {
+    #organizations.org-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 12px;
+    }
+
+    #organizations .org {
+        padding-inline: 5px;
+    }
+
+    #organizations .org > img {
+        width: 124px;
+        height: 124px;
+        padding: 20px;
+    }
+
+    #organizations .org::before {
+        width: 140px;
+        height: 140px;
+    }
+
+    #organizations .org::after {
+        top: 17px;
+        left: calc(50% + 31px);
+    }
+
+    #organizations .org > h3 {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .person .speaker-portrait {
+        width: 132px;
+        height: 132px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .person .speaker-portrait,
+    #organizations .org > img,
+    #organizations .org::before {
+        transition: none;
+    }
+
+    .card:hover .speaker-portrait,
+    #organizations .org:hover > img,
+    #organizations .org:focus-within > img {
+        transform: none;
+    }
+
+    #organizations .org:hover::before,
+    #organizations .org:focus-within::before {
+        transform: translateX(-50%) rotate(-25deg);
+    }
+}
+/* تعبئة صور المحاضرين داخل الدائرة */
+
+.person .speaker-portrait {
+    padding: 0;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.person .speaker-portrait.is-placeholder {
+    padding: 0;
+    object-fit: cover;
+    object-position: center;
+}
+/* شعار الوكالة في الشريط العلوي */
+
+.identity .university-logo {
+    width: 135px;
+    height: 76px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: none;
+}
+
+/* شعار الملتقى وحده بعرض المساحة */
+
+.official-identities {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.official-logo-forum {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 24px 32px;
+}
+
+.official-logo-forum img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    max-height: none;
+    margin-inline: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .identity .university-logo {
+        width: 100px;
+        height: 64px;
+    }
+
+    .official-logo-forum {
+        padding: 20px 14px;
+    }
+
+    .official-logo-forum img {
+        height: auto;
+    }
+}
+/* تكبير شعار الوكالة في الشريط العلوي */
+
+.identity .university-logo {
+    width: 190px;
+    height: 110px;
+    object-fit: contain;
+    filter: none;
+}
+
+/* تقليل الفراغ وربط شعار الملتقى بالقسم التالي */
+
+section.official-identities {
+    display: block;
+    padding-block: 20px 0;
+    margin-bottom: 0;
+}
+
+.official-identities .official-logo-forum {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.official-identities .official-logo-forum img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+}
+
+.official-identities + .hero {
+    margin-top: 0;
+}
+
+@media (max-width: 900px) {
+    .identity .university-logo {
+        width: 160px;
+        height: 95px;
+    }
+}
+
+@media (max-width: 600px) {
+    .identity .university-logo {
+        width: 135px;
+        height: 82px;
+    }
+
+    section.official-identities {
+        padding-top: 12px;
+    }
+}
+.hero .edition {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 4vw, 56px);
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+    .hero h1 {
+        font-size: clamp(28px, 7vw, 36px);
+    }
+}

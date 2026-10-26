@@ -350,14 +350,23 @@
 
             <p>
                 مهارات الغد في ضوء سوق عمل رؤية 2030 لتحقيق وظائف مستدامة
-                والتوازن الرقمي والبشري.
+                في ظل اقتصاد متغير لتحقيق التوازن الرقمي والبشري.
             </p>
 
-            <p>
-                مدير الجلسة:
-                <b>د. عبد الرحمن علي بديوي</b>
-                — عضو هيئة تدريس بالكلية التطبيقية والمشرف على شطر الطلاب.
-            </p>
+            <!-- مقدم الجلسة الحوارية: بطاقة مستقلة أعلى المشاركين -->
+            <article class="panel-moderator" aria-label="مقدم الجلسة الحوارية">
+                <img
+                    src="assets/panel-moderator.png"
+                    alt="د. عبد الرحمن علي بديوي"
+                    class="panel-moderator-photo"
+                    loading="lazy">
+                <div class="panel-moderator-info">
+                    <div class="panel-moderator-label">مقدم الجلسة الحوارية</div>
+                    <h3>د. عبد الرحمن علي بديوي</h3>
+                    <p>عضو هيئة تدريس بالكلية التطبيقية والمشرف على شطر الطلاب</p>
+                    <p>جامعة الإمام عبد الرحمن بن فيصل</p>
+                </div>
+            </article>
 
             <div id="panelists" class="grid"></div>
 
@@ -365,11 +374,12 @@
                 <summary>محاور الجلسة الحوارية</summary>
 
                 <ul>
-                    <li>فجوة المهارات بين مخرجات الكليات واحتياجات السوق.</li>
-                    <li>التدريب التعاوني بوابة للتوظيف الفعلي.</li>
-                    <li>التسويق الذاتي والمهارات في عصر الرقمنة.</li>
-                    <li>المرونة والتكيف مع بيئات العمل المتغيرة.</li>
-                    <li>توصيات تحديث المخرجات التعليمية لمستقبل السوق.</li>
+                    <li><b>فجوة المهارات:</b> ما هي الفجوة الحقيقية التي يلاحظها أصحاب العمل بين مخرجات الكليات واحتياجات السوق حاليًا؟</li>
+                    <li><b>دور التدريب التعاوني:</b> كيف يمكن تحويل التدريب التعاوني من "متطلب تخرج" إلى "بوابة توظيف فعلية"؟ وما الذي يجعل المتدرب يتحول إلى موظف دائم؟</li>
+                    <li><b>التسويق الذاتي:</b> كيف يمكن للخريج تسويق نفسه ومهاراته في عصر الرقمنة، خاصة في مجالات مثل الإدارة، الموارد البشرية، والتسويق؟</li>
+                    <li><b>المرونة والتكيف:</b> كيف تقيس المؤسسات اليوم "قدرة الخريج على التكيف" مع بيئات العمل الهجينة أو المتغيرة بسرعة؟</li>
+                    <li><b>رسالة للكلية:</b> ما هي التوصية العملية التي توجهونها لإدارة الكلية التطبيقية لتحديث مخرجاتها التعليمية لتتوافق مع مستقبل السوق؟</li>
+                    <li><b>ماذا لو؟؟؟</b></li>
                 </ul>
             </details>
 
@@ -403,28 +413,138 @@
             <div id="organizations" class="org-grid"></div>
         </section>
 
-        <!-- الإعلانات -->
-        <section class="downloads">
+        <!-- الإعلانات بحسب أيام الملتقى: لعرض صورة بحجم كامل اضغط على الإعلان -->
+        <section class="downloads" id="announcements" aria-labelledby="announcements-heading">
             <div>
                 <div class="eyebrow">كل التفاصيل في مكان واحد</div>
-                <h2>إعلانات الملتقى</h2>
+                <h2 id="announcements-heading">إعلانات الملتقى</h2>
+                <p class="daily-announcement-intro">اختر يوم الملتقى للاطلاع على إعلاناته وورشه، واضغط على أي صورة لعرضها وتكبيرها.</p>
             </div>
-
-            <a
-                class="outline"
-                href="assets/announcement.webp"
-                target="_blank"
-                rel="noopener">
-                إعلان الملتقى ↗
-            </a>
-
-            <a
-                class="outline"
-                href="assets/partners.webp"
-                target="_blank"
-                rel="noopener">
-                الجهات المشاركة ↗
-            </a>
+            <a class="outline" href="assets/partners.webp" target="_blank" rel="noopener">الجهات المشاركة ↗</a>
+            <div class="daily-announcement-collection">
+            <details class="daily-announcement-day" open>
+                <summary><span>إعلانات اليوم الأول</span><small>الأحد 1 نوفمبر 2026 · 4 إعلانات</small></summary>
+                <div class="daily-announcement-grid">
+                    <a class="daily-announcement-card" href="assets/daily-announcements/01-01.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/01-01.webp" alt="اليوم الأول" loading="lazy" decoding="async">
+                        <span>اليوم الأول</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/01-02.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/01-02.webp" alt="ورشة لولوة العيوني" loading="lazy" decoding="async">
+                        <span>ورشة لولوة العيوني</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/01-03.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/01-03.webp" alt="ورشة محمد العيد" loading="lazy" decoding="async">
+                        <span>ورشة محمد العيد</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/01-04.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/01-04.webp" alt="ورشة محمد الكريديس" loading="lazy" decoding="async">
+                        <span>ورشة محمد الكريديس</span>
+                    </a>
+                </div>
+            </details>
+            <details class="daily-announcement-day" >
+                <summary><span>إعلانات اليوم الثاني</span><small>الاثنين 2 نوفمبر 2026 · 4 إعلانات</small></summary>
+                <div class="daily-announcement-grid">
+                    <a class="daily-announcement-card" href="assets/daily-announcements/02-01.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/02-01.webp" alt="اليوم الثاني" loading="lazy" decoding="async">
+                        <span>اليوم الثاني</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/02-02.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/02-02.webp" alt="ورشة أشواق الأسمري" loading="lazy" decoding="async">
+                        <span>ورشة أشواق الأسمري</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/02-03.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/02-03.webp" alt="ورشة عبديه موسى" loading="lazy" decoding="async">
+                        <span>ورشة عبديه موسى</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/02-04.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/02-04.webp" alt="ورشة فاطمة الصبيحة" loading="lazy" decoding="async">
+                        <span>ورشة فاطمة الصبيحة</span>
+                    </a>
+                </div>
+            </details>
+            <details class="daily-announcement-day" >
+                <summary><span>إعلانات اليوم الثالث</span><small>الثلاثاء 3 نوفمبر 2026 · 2 إعلانات</small></summary>
+                <div class="daily-announcement-grid">
+                    <a class="daily-announcement-card" href="assets/daily-announcements/03-01.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/03-01.webp" alt="اليوم الثالث" loading="lazy" decoding="async">
+                        <span>اليوم الثالث</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/03-02.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/03-02.webp" alt="ملتقى التدريب (إعلان عام)" loading="lazy" decoding="async">
+                        <span>ملتقى التدريب (إعلان عام)</span>
+                    </a>
+                </div>
+            </details>
+            <details class="daily-announcement-day" >
+                <summary><span>إعلانات اليوم الرابع</span><small>الأربعاء 4 نوفمبر 2026 · 4 إعلانات</small></summary>
+                <div class="daily-announcement-grid">
+                    <a class="daily-announcement-card" href="assets/daily-announcements/04-01.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/04-01.webp" alt="اليوم الرابع" loading="lazy" decoding="async">
+                        <span>اليوم الرابع</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/04-02.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/04-02.webp" alt="ورشة الفيصل المالكي" loading="lazy" decoding="async">
+                        <span>ورشة الفيصل المالكي</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/04-03.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/04-03.webp" alt="ورشة ريم الهاجري" loading="lazy" decoding="async">
+                        <span>ورشة ريم الهاجري</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/04-04.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/04-04.webp" alt="ورشة سارة اليامي" loading="lazy" decoding="async">
+                        <span>ورشة سارة اليامي</span>
+                    </a>
+                </div>
+            </details>
+            <details class="daily-announcement-day" >
+                <summary><span>إعلانات اليوم الخامس</span><small>الخميس 5 نوفمبر 2026 · 3 إعلانات</small></summary>
+                <div class="daily-announcement-grid">
+                    <a class="daily-announcement-card" href="assets/daily-announcements/05-01.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/05-01.webp" alt="إعلان الجلسة الحوارية" loading="lazy" decoding="async">
+                        <span>إعلان الجلسة الحوارية</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/05-02.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/05-02.webp" alt="إعلان الجلسة الحوارية1" loading="lazy" decoding="async">
+                        <span>إعلان الجلسة الحوارية1</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/05-03.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/05-03.webp" alt="اليوم الخامس" loading="lazy" decoding="async">
+                        <span>اليوم الخامس</span>
+                    </a>
+                </div>
+            </details>
+            <details class="daily-announcement-day" >
+                <summary><span>إعلانات عامة</span><small>إعلانات تعريفية وإعلانات ترقبوا · 6 إعلانات</small></summary>
+                <div class="daily-announcement-grid">
+                    <a class="daily-announcement-card" href="assets/daily-announcements/general-01.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/general-01.webp" alt="ترقبوا ملتقى التدريب - جدول الأعمال" loading="lazy" decoding="async">
+                        <span>ترقبوا ملتقى التدريب - جدول الأعمال</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/general-02.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/general-02.webp" alt="ترقبوا ملتقى التدريب والجهات المشاركة" loading="lazy" decoding="async">
+                        <span>ترقبوا ملتقى التدريب والجهات المشاركة</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/general-03.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/general-03.webp" alt="ترقبوا ملتقى التدريب" loading="lazy" decoding="async">
+                        <span>ترقبوا ملتقى التدريب</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/general-04.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/general-04.webp" alt="ملتقى التدريب (إعلان عام)" loading="lazy" decoding="async">
+                        <span>ملتقى التدريب (إعلان عام)</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/general-05.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/general-05.webp" alt="ملتقى التدريب (إعلان عام)" loading="lazy" decoding="async">
+                        <span>ملتقى التدريب (إعلان عام)</span>
+                    </a>
+                    <a class="daily-announcement-card" href="assets/daily-announcements/general-06.webp" target="_blank" rel="noopener">
+                        <img src="assets/daily-announcements/general-06.webp" alt="ملتقى التدريب (إعلان عام)" loading="lazy" decoding="async">
+                        <span>ملتقى التدريب (إعلان عام)</span>
+                    </a>
+                </div>
+            </details>
+            </div>
         </section>
 
         <!-- بيانات التواصل -->

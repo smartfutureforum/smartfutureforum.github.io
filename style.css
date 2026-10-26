@@ -1036,6 +1036,38 @@ main > .panel-section {
     margin-bottom: 10px;
 }
 
+/* بطاقة مقدم الجلسة الحوارية (إضافة مستقلة) */
+.panel-moderator {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 26px;
+    margin-top: 24px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface2);
+}
+
+.panel-moderator-photo {
+    flex: 0 0 118px;
+    width: 118px;
+    height: 118px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+}
+
+.panel-moderator-info { min-width: 0; }
+.panel-moderator-label { color: var(--accent); font-weight: 700; font-size: 14px; }
+.panel-moderator-info h3 { margin: 8px 0; font-size: 21px; }
+.panel-moderator-info p { margin: 5px 0; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 600px) {
+    .panel-moderator { flex-direction: column; text-align: center; padding: 20px 14px; gap: 12px; }
+    .panel-moderator-photo { flex-basis: 108px; width: 108px; height: 108px; }
+    .panel-moderator-info h3 { font-size: 18px; }
+}
+
 /* ========================================
    معرض التدريب
 ======================================== */
@@ -2428,3 +2460,17 @@ section.official-identities {
         font-size: clamp(28px, 7vw, 36px);
     }
 }
+
+/* إعلانات الملتقى موزعة حسب اليوم — إضافات فقط دون تغيير الأنماط القديمة */
+.downloads .daily-announcement-intro {margin: 12px 0 0; color: var(--muted, #b2c9d2); line-height: 1.9; font-size: 14px;}
+.downloads .daily-announcement-collection {width: 100%; display: grid; gap: 12px; margin: 0;}
+.daily-announcement-day {border: 1px solid var(--line); border-radius: 14px; background: var(--surface); overflow: hidden;}
+.daily-announcement-day > summary {cursor: pointer; padding: 19px 22px; display:flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; color: var(--text); font-size: 17px; font-weight: 700; list-style-position: inside;}
+.daily-announcement-day > summary small {font-size: 12px; font-weight: 400; color: var(--gold);}
+.daily-announcement-day[open] > summary {border-bottom: 1px solid var(--line);}
+.daily-announcement-grid {display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 15px; padding: 18px;}
+.daily-announcement-card {display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--line); border-radius: 12px; padding: 9px; color: var(--text); background: rgba(255,255,255,.025); text-decoration: none; transition: border-color .2s, transform .2s;}
+.daily-announcement-card:hover,.daily-announcement-card:focus-visible {border-color: var(--gold); transform: translateY(-2px);}
+.daily-announcement-card img {width: 100%; height: 245px; object-fit: contain; background: rgba(0,0,0,.12); border-radius: 8px;}
+.daily-announcement-card span {text-align: center; font-size: 13px; line-height: 1.8;}
+@media (max-width: 550px) {.daily-announcement-grid {grid-template-columns: repeat(2, minmax(0,1fr)); gap: 9px; padding: 10px;} .daily-announcement-card img {height: 180px;} .daily-announcement-day > summary {padding: 15px;}}
